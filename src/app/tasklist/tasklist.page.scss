@@ -8,6 +8,7 @@ ion-navbar {
   --ion-toolbar-background-color: transparent;
   }
 ion-content{
+  --padding-bottom: 81px;
  --background: transparent !important;
   #date{
     color: #ffffff;
@@ -27,11 +28,11 @@ ion-content{
 .item .item-content {   background-color: transparent !important; }
 
 .high{
-  --background: #ffa7a7;
+  --background: #B81D13;
 }.middle{
-  --background: #ffffa3;
+  --background: #EFB700;
 }.low{
-  --background: #b8ffb8;
+  --background: #008450;
 }
 
 .item .item-content {
