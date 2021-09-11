@@ -1,0 +1,43 @@
+ion-header{
+  background: transparent !important;
+background-color: transparent !important;
+ --ion-background-color: transparent !important;
+ --background: transparent !important;
+}
+ion-navbar {
+  --ion-toolbar-background-color: transparent;
+  }
+ion-content{
+ --background: transparent !important;
+  #date{
+    color: #ffffff;
+  font-weight: 400;  
+  }
+
+}
+  .label{
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 3em;
+  }
+  
+.sc-ion-label-md-s>p {
+  color: #fbfbfb;
+}
+.item .item-content {   background-color: transparent !important; }
+
+.high{
+  --background: #ffa7a7;
+}.middle{
+  --background: #ffffa3;
+}.low{
+  --background: #b8ffb8;
+}
+
+.item .item-content {
+  background-color: transparent !important;
+}
+.item-content {
+  background-color:red;
+}
+

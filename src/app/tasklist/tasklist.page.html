@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar no-shadow lines="none">
+    <ion-item>
+      <ion-label class="label">
+        Today
+        <p id="date">{{today | date:'fullDate'}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card mode='ios' *ngFor="let item of todoService.tasks2; let i = index" lines="none">
+
+    <ion-item-sliding mode = 'ios'>
+      <ion-item
+        [ngClass]="{'high': item.value.itemPriority === 'high', 'low' : item.value.itemPriority === 'low' , 'middle' : item.value.itemPriority === 'middle'}">
+        <ion-checkbox mode="ios" [(ngModel)]="item.value.state" (ionChange)="updateChecklist(item)"></ion-checkbox>
+
+        <ion-label>
+          <h1>{{ item.value.itemName}}</h1>
+        </ion-label>
+        <p>{{item.value.itemDueDate | date:'hour'}}</p>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="update(item)">
+          <ion-icon size="large" name="create-outline"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="delete(item.key)">
+          <ion-icon size="large" name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-card>
+</ion-content>

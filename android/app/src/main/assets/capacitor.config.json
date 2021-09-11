@@ -1,0 +1,13 @@
+{
+  "appId": "com.fooxcoder.com",
+  "appName": "ToDolist",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

@@ -1,0 +1,42 @@
+.image {
+    display: flex;
+    justify-content: center;
+  }
+  ion-content{
+    --background: #161616;
+    
+    }
+.background {
+    
+    height: 100%;
+    position: fixed;
+    background-size: cover;
+    overflow: overlay;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    
+  }
+  h1{
+    text-align: center; 
+    color: #00ADB5; 
+    font-family: Nunito-ExtraBold;
+     font-size: 56px;
+   }
+   p{
+     color: white;
+    text-align: center; 
+    
+    font-family: Nunito;
+     font-size: 20px;
+   }
+   h2{
+    color: white;
+
+    text-align: center; 
+    font-family: Nunito-ExtraBold;
+     font-size: 30px;
+   }
