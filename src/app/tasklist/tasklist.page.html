@@ -20,7 +20,7 @@
         <ion-label>
           <h1>{{ item.value.itemName}}</h1>
         </ion-label>
-        <p>{{item.value.itemDueDate | date:'hour'}}</p>
+        <p>{{item.value.itemDueDate | relativeTime}}</p>
       </ion-item>
       <ion-item-options  side="end">
         <ion-item-option (click)="update(item)">

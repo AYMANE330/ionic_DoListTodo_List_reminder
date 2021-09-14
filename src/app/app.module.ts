@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { RelativeTime } from './relative-time.pipe';
 
 @NgModule({
   declarations: [AppComponent],

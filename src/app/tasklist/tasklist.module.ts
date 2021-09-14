@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RelativeTime } from '../relative-time.pipe';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -10,11 +11,13 @@ import { TasklistPage } from './tasklist.page';
 
 @NgModule({
   imports: [
+    
     CommonModule,
     FormsModule,
     IonicModule,
-    TasklistPageRoutingModule
+    TasklistPageRoutingModule,
+    
   ],
-  declarations: [TasklistPage]
+  declarations: [TasklistPage,RelativeTime]
 })
 export class TasklistPageModule {}
