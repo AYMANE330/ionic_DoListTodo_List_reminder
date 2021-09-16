@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: 'about',
-        loadChildren: () => import('../about/about.module').then(m => m.AboutPageModule)
+        loadChildren: () => import('../settings/settings.module').then(m => m.SettingsPageModule)
       },
       {
         path: 'home',

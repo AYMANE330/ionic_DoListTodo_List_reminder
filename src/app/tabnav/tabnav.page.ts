@@ -1,7 +1,6 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
 import { AlertController, ModalController,IonTabs} from '@ionic/angular';
 import { UpdateTaskPage } from '../update-task/update-task.page';
-import { TodoService } from '../todo.service';
 
 
 @Component({

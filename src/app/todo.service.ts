@@ -5,9 +5,6 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root'
 })
 export class TodoService {
-  checklist: boolean = false;
-  var: string;
-
   tasks2 = [];
   constructor(private storage: Storage) {
     this.init();
@@ -54,5 +51,4 @@ export class TodoService {
   updateChecklist(item) {
     this.storage.set(item.key, item.value);
   }
-
 }

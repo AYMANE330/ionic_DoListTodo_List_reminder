@@ -11,29 +11,27 @@ ion-content{
   --padding-bottom: 81px;
  --background: transparent !important;
   #date{
-    color: #ffffff;
   font-weight: 400;  
   }
 
 }
   .label{
-    color: #ffffff;
     font-weight: 800;
     font-size: 3em;
   }
   
-.sc-ion-label-md-s>p {
-  color: #fbfbfb;
-}
+// .sc-ion-label-md-s>p {
+//   color: #030303;
+// }
 .item .item-content {   background-color: transparent !important; }
 
-.high{
-  --background: #B81D13;
-}.middle{
-  --background: #EFB700;
-}.low{
-  --background: #008450;
-}
+// .high{
+//   --background: #B81D13;
+// }.middle{
+//   --background: #EFB700;
+// }.low{
+//   --background: #008450;
+// }
 
 .item .item-content {
   background-color: transparent !important;

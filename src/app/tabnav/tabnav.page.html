@@ -1,11 +1,11 @@
 <ion-content>
 
   <ion-tabs  #tabs (ionTabsDidChange)="setCurrentTab($event)">
-     <ion-fab vertical="bottom" horizontal="center" translucent="true">
+     <ion-fab  color="primary" vertical="bottom" horizontal="center" translucent="true">
        <ion-fab-button (click)="addNewItem()">
          <ion-icon name="create-outline"></ion-icon>
        </ion-fab-button>
-     </ion-fab>
+     </ion-fab >
      <ion-tab-bar slot="bottom">
        <ion-tab-button tab="home">
          <ion-icon [name]="selectTab == 'home' ? 'home' : 'home-sharp'"></ion-icon>

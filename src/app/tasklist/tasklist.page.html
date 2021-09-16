@@ -12,17 +12,19 @@
 <ion-content>
   <ion-card mode='ios' *ngFor="let item of todoService.tasks2; let i = index" lines="none">
 
-    <ion-item-sliding mode = 'ios' #slidingItem>
-      <ion-item
-        [ngClass]="{'high': item.value.itemPriority === 'high', 'low' : item.value.itemPriority === 'low' , 'middle' : item.value.itemPriority === 'middle'}">
+    <ion-item-sliding mode='ios' #slidingItem>
+      <ion-item>
         <ion-checkbox mode="ios" [(ngModel)]="item.value.state" (ionChange)="updateChecklist(item)"></ion-checkbox>
-
+        
+        <ion-icon slot="end" *ngIf="item.value.itemPriority === 'high'" color="danger" size="small" name="ellipse"></ion-icon>
+        <ion-icon slot="end" *ngIf="item.value.itemPriority === 'low'" color="success" size="small" name="ellipse"></ion-icon>
+        <ion-icon slot="end" *ngIf="item.value.itemPriority === 'middle'" color="warning" size="small" name="ellipse"></ion-icon>
         <ion-label>
           <h1>{{ item.value.itemName}}</h1>
         </ion-label>
         <p>{{item.value.itemDueDate | relativeTime}}</p>
       </ion-item>
-      <ion-item-options  side="end">
+      <ion-item-options side="end">
         <ion-item-option (click)="update(item)">
           <ion-icon size="large" name="create-outline"></ion-icon>
         </ion-item-option>
