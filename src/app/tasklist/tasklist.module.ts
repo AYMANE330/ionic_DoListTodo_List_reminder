@@ -2,13 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RelativeTime } from '../relative-time.pipe';
-
+import {  HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicModule } from '@ionic/angular';
 
 import { TasklistPageRoutingModule } from './tasklist-routing.module';
 
 import { TasklistPage } from './tasklist.page';
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
 @NgModule({
   imports: [
     
@@ -16,6 +21,13 @@ import { TasklistPage } from './tasklist.page';
     FormsModule,
     IonicModule,
     TasklistPageRoutingModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
     
   ],
   declarations: [TasklistPage,RelativeTime]

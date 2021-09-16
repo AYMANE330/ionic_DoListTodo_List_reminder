@@ -10,8 +10,8 @@
 
     <ion-list>
       <ion-item>
-        <!-- <ion-icon slot="start" name="sunny-sharp" class="duration-1 moon" [ngClass]="{'animated-hide' : darkmode}"></ion-icon> -->
-        <!-- <ion-icon slot="start" name="moon-sharp" class="duration-1 sun" [ngClass]="{'animated-hide' : !darkmode}"></ion-icon> -->
+        <ion-icon slot="start" name="sunny-sharp" class="duration-1 moon" [ngClass]="{'animated-hide' : darkmode}"></ion-icon>
+        <ion-icon slot="start" name="moon-sharp" class="duration-1 sun" [ngClass]="{'animated-hide' : !darkmode}"></ion-icon>
         <p> Dark Mode</p>
         <ion-toggle slot="end" [(ngModel)]="darkmode" (ionChange)="toggletheme($event)"></ion-toggle>
       </ion-item>

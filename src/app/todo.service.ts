@@ -43,12 +43,12 @@ export class TodoService {
     this.tasks2 = tasks
     return tasks
   }
-
+updateChecklist(item) {
+    this.storage.set(item.key, item.value);
+  }
   async init() {
     await this.storage.create()
   }
 
-  updateChecklist(item) {
-    this.storage.set(item.key, item.value);
-  }
+  
 }
