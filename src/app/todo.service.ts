@@ -38,17 +38,21 @@ export class TodoService {
   getAllTasks() {
     let tasks: any = []
     this.storage.forEach((key, value, index) => {
-      tasks.push({ 'key': value, 'value': key })
+      if (value !== 'darkmode') {
+        tasks.push({ 'value': value, 'key': key })
+      }
     });
     this.tasks2 = tasks
     return tasks
   }
 
-  async init() {
-    await this.storage.create()
-  }
 
   updateChecklist(item) {
     this.storage.set(item.key, item.value);
   }
+  async init() {
+    await this.storage.create()
+  }
+
+
 }
