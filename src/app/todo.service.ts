@@ -45,6 +45,7 @@ export class TodoService {
     this.tasks2 = tasks
     return tasks
   }
+<<<<<<< HEAD
 
 
   updateChecklist(item) {
@@ -55,4 +56,14 @@ export class TodoService {
   }
 
 
+=======
+updateChecklist(item) {
+    this.storage.set(item.key, item.value);
+  }
+  async init() {
+    await this.storage.create()
+  }
+
+  
+>>>>>>> fad5dd1d15f729a65be1993209bce31693fed0fe
 }
