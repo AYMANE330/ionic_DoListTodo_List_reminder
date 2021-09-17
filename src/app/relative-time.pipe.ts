@@ -8,7 +8,7 @@ export class RelativeTime implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(value: string,) {
-    if (!value) return 'test';
+    if (!value) return 'no date';
     return this.timeDifference(new Date(), new Date(value));
   }
 
