@@ -1,54 +1,65 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
+import { log } from 'console';
 
+const TASKS_KEY = 'tasks'
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  tasks2 = [];
-  constructor(private storage: Storage) {
+  tasks = [];
+  constructor(private storage: Storage) { 
     this.init();
     this.getAllTasks();
   }
 
-  addTask(key, value) {
-    this.storage.set(key, value).then((obj) => {
-      this.tasks2.push({ key, value: obj })
-    });
+  addTask(task) {
+    this.tasks.push(task);
+    this.storage.set(TASKS_KEY, this.tasks);
   }
 
-  deleteTask(key) {
-    this.storage.remove(key).then(() => {
-      this.tasks2 = this.tasks2.filter((obj) => {
-        return obj.key !== key;
-      });
+  deleteTask(deletedTask) {
+    this.tasks = this.tasks.filter((task) => {
+      return task.key !== deletedTask.key;
     });
+    this.storage.set(TASKS_KEY, this.tasks);
   }
 
-  updateTask(key, newValue) {
-    this.storage.set(key, newValue).then((val) => {
-      this.tasks2.forEach((obj, index) => {
-        if (obj.key === key) {
-          this.tasks2[index] = { key, value: val }
+  updateTask(oldTask, newTask) {
+      this.tasks.forEach((task, index) => {
+        if (task.key === oldTask.key) {
+          this.tasks[index] = newTask;
         }
       });
-    });
+      this.storage.set(TASKS_KEY, this.tasks);
   }
 
   getAllTasks() {
-    let tasks: any = []
-    this.storage.forEach((key, value, index) => {
-      if (value !== 'darkmode') {
-        tasks.push({ 'value': value, 'key': key })
+    this.storage.get(TASKS_KEY).then((tasks)=>{
+      if (tasks) {
+        this.tasks = tasks;
       }
+
+      return this.tasks;
     });
-    this.tasks2 = tasks
-    return tasks
   }
 
-updateChecklist(item) {
-    this.storage.set(item.key, item.value);
+  removeAllTasks() {
+    this.storage.set(TASKS_KEY, []).then(()=>{
+      this.tasks = [];
+    });
   }
+
+  updateChecklist(checkedTask) {
+    this.tasks.forEach((task, index) => {
+      if (task.key === checkedTask.key) {
+        this.tasks[index] = checkedTask;
+      }
+    });
+    this.storage.set(TASKS_KEY, this.tasks);
+  }
+
+
   async init() {
     await this.storage.create()
   }

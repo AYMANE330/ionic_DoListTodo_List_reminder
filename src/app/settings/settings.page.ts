@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController,IonTabs} from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-settings',
@@ -8,29 +9,20 @@ import { Storage } from '@ionic/storage-angular';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
-  darkmode: any;
-  constructor(public alert: AlertController, public navCtrl: NavController, public storage: Storage) {
-    storage.create ().then(() => {
-      storage.get('darkmode').then((val) => {
-        console.log(`Setting status from storage to '${this.darkmode}'`);
-        this.darkmode = val;
-      })
-    });
-   }
+  darkvalue: any;
+  constructor(private themeService : ThemeService) {}
 
+  
+  get darkboolean() {
+    return this.themeService.dark;
+  }
   ngOnInit() {
+    this.darkvalue = this.darkboolean;
+    console.log(this.darkvalue);
   }
-  toggletheme(event) {
-    
-    console.log( event. detail. checked);
-    if (event. detail. checked)
-    {
-      document.body.setAttribute('color-theme','dark');
-    }else{
-            document.body.setAttribute('color-theme','light');
-            
-    }
-    console.log(`changing toggleStatus to '${this.darkmode}'`);
-            this.storage.set('darkmode', this.darkmode);
+  setThem(ev){
+    console.log('ev.detail.checked', ev.detail.checked);
+    this.themeService.setAppTheme(ev.detail.checked);
   }
+
   }

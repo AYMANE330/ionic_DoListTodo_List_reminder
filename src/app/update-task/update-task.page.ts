@@ -35,12 +35,20 @@ export class UpdateTaskPage implements OnInit {
   }
   
   async add(){
-    this.newTaskObj = ({itemName:this.itemName, itemDueDate:this.itemDueDate, itemPriority:this.itemPriority})
-    console.log(this.newTaskObj);
-    let uid = this.itemName + this.itemDueDate
-    if(uid){
-      await this.todoService.addTask(uid,this.newTaskObj)
+    const key = this.itemName + this.itemDueDate
 
+    this.newTaskObj = {
+      key: key,
+      value:{
+        itemName:this.itemName,
+        itemDueDate:this.itemDueDate,
+        itemPriority:this.itemPriority
+      }
+    }
+
+    console.log(this.newTaskObj);
+    if(key){
+      await this.todoService.addTask(this.newTaskObj)
     }else{
       console.log("can't save empty task");
     }
@@ -49,10 +57,18 @@ export class UpdateTaskPage implements OnInit {
   
   async update(){
     console.log("this.task", this.task);
-    this.newTaskObj = ({itemName:this.itemName, itemDueDate:this.itemDueDate, itemPriority:this.itemPriority})
-    // this.newTaskObj = this.task;
-    let uid = this.task.key
-    await this.todoService.updateTask(uid,this.newTaskObj)
+    console.log("this.newTaskObj", this.newTaskObj);
+
+    this.newTaskObj = {
+      key: this.task.key,
+      value:{
+        itemName:this.itemName,
+        itemDueDate:this.itemDueDate,
+        itemPriority:this.itemPriority
+      }
+    }
+  
+    await this.todoService.updateTask(this.task, this.newTaskObj)
     this.dismis()
   }
   

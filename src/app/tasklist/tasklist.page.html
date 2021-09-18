@@ -10,7 +10,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-card mode='ios' *ngFor="let item of todoService.tasks2; let i = index" lines="none">
+  <ion-button (click)="todoService.removeAllTasks()">Remove all</ion-button>
+  <div class="ion-text-center" *ngIf="!todoService.tasks?.length">
+    <img class="empty-image" [src]="emptyList.image" alt="">
+    <h3>
+      {{emptyList.text}}
+    </h3>
+  </div>
+  <ion-card mode='ios' *ngFor="let item of todoService.tasks; let i = index" lines="none">
 
     <ion-item-sliding mode='ios' #slidingItem>
       <ion-item>
@@ -28,7 +35,7 @@
         <ion-item-option (click)="update(item)">
           <ion-icon size="large" name="create-outline"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="danger" (click)="delete(item.key, slidingItem)">
+        <ion-item-option color="danger" (click)="delete(item, slidingItem)">
           <ion-icon size="large" name="trash-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>

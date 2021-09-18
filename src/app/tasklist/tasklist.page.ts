@@ -12,9 +12,33 @@ export class TasklistPage {
   todoList = []
 
   today: number = Date.now();
+  emptyList: { text: string; image: string; };
+  emptyLists: { text: string; image: string; }[];
 
   constructor(public modalCtlr: ModalController, public todoService: TodoService, public alertController: AlertController) {
-    this.getAllTask()
+    this.getAllTask();
+
+    this.emptyLists = [
+      {
+        text : ' test Looks like you didnt inse ',
+        image: '../../assets/images/brain.png'
+      },
+      {
+        text : 'test1',
+        image: '../../assets/images/light.png'
+      },
+      {
+        text : 'test2',
+        image: '../../assets/images/gains.png'
+      },
+      {
+        text : 'test3',
+        image: '../../assets/images/poche.png'
+      }
+    ]
+
+    this.emptyList = this.emptyLists[Math.floor(Math.random() * this.emptyLists.length)];
+    
   }
 
   async addNewItem() {
@@ -28,15 +52,15 @@ export class TasklistPage {
   }
 
   getAllTask() {
-    this.todoList = this.todoService.getAllTasks()
+    this.todoService.getAllTasks()
     console.log(this.todoService.getAllTasks());
   }
 
-  confirmDelete(key) {
-    this.todoService.deleteTask(key);
+  confirmDelete(task) {
+    this.todoService.deleteTask(task);
   }
 
-  async delete(key, item: IonItemSliding) {
+  async delete(task, item: IonItemSliding) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Confirm!',
@@ -53,7 +77,7 @@ export class TasklistPage {
         }, {
           text: 'Okay',
           handler: () => {
-            this.confirmDelete(key);
+            this.confirmDelete(task);
             console.log('Confirm Okay');
           }
         }
