@@ -35,7 +35,7 @@ export class UpdateTaskPage implements OnInit {
   }
   
   async add(){
-    const key = this.itemName + this.itemDueDate
+    const key = Math.floor(Math.random() * 99999999999999)
 
     this.newTaskObj = {
       key: key,

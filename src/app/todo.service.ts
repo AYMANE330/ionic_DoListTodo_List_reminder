@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
-import { log } from 'console';
+import { Plugins } from '@capacitor/core';
+    const { LocalNotifications } = Plugins;
 
 const TASKS_KEY = 'tasks'
 @Injectable({
@@ -8,14 +9,17 @@ const TASKS_KEY = 'tasks'
 })
 export class TodoService {
   tasks = [];
+  
   constructor(private storage: Storage) { 
     this.init();
     this.getAllTasks();
   }
 
-  addTask(task) {
+  async addTask(task) {
     this.tasks.push(task);
     this.storage.set(TASKS_KEY, this.tasks);
+this.setNotif(task)
+
   }
 
   deleteTask(deletedTask) {
@@ -32,6 +36,7 @@ export class TodoService {
         }
       });
       this.storage.set(TASKS_KEY, this.tasks);
+      this.setNotif(newTask)
   }
 
   getAllTasks() {
@@ -63,5 +68,20 @@ export class TodoService {
   async init() {
     await this.storage.create()
   }
-}
-  
+
+  async setNotif(task){
+      const notifs = await LocalNotifications.schedule({
+        notifications: [
+          {
+            title: task.value.itemName,
+            body: '',
+            id: task.key,
+            schedule: { at: new Date(new Date(task.value.itemDueDate).setSeconds(0))  }
+          },
+        ],
+      });
+      console.log(new Date(task.value.itemDueDate));
+      
+    }
+
+  }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController,IonTabs} from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { ThemeService } from '../theme.service';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-settings',
@@ -10,7 +11,7 @@ import { ThemeService } from '../theme.service';
 })
 export class SettingsPage implements OnInit {
   darkvalue: any;
-  constructor(private themeService : ThemeService) {}
+  constructor(private themeService : ThemeService, public todoService: TodoService) {}
 
   
   get darkboolean() {
