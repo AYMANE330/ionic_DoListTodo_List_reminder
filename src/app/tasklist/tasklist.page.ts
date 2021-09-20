@@ -63,8 +63,8 @@ export class TasklistPage {
   async delete(task, item: IonItemSliding) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      header: 'Delete Confirmation !!!',
+      message: 'Are You Sure You Want To Delete This <strong>Task</strong>',
       buttons: [
         {
           text: 'Cancel',
@@ -75,7 +75,7 @@ export class TasklistPage {
               item.close();
           }
         }, {
-          text: 'Okay',
+          text: 'Delete',
           handler: () => {
             this.confirmDelete(task);
             console.log('Confirm Okay');
