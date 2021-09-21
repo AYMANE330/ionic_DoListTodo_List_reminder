@@ -3,8 +3,23 @@
 }
 .animated-hide{
     transform: translateY(40px);
+    
 }
 .sun{
-    position: relative;
-    left: -48px;
+    position: absolute;
+}
+.vr{
+    margin-left: 142px;
+    font-size: small;
+    margin-top: -7px;
+}
+.img{
+
+max-width: 100%;
+text-align: center;
+filter: grayscale(1);
+width: min-content;
+padding-left: 82px;
+padding-top: 46px
+
 }

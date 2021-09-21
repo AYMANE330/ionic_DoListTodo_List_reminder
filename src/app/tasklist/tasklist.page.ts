@@ -20,19 +20,20 @@ export class TasklistPage {
 
     this.emptyLists = [
       {
-        text : ' test Looks like you didnt inse ',
+        text : ' Add Your First Todo',
         image: '../../assets/images/brain.png'
       },
       {
-        text : 'test1',
+        text : 'What Do You Want To Get Done Today?',
         image: '../../assets/images/light.png'
       },
       {
-        text : 'test2',
+        text : `Let's Do Your task`,
         image: '../../assets/images/gains.png'
       },
       {
-        text : 'test3',
+        text : `Are You Ready?
+		Let's Do Your Tasks`,
         image: '../../assets/images/poche.png'
       }
     ]

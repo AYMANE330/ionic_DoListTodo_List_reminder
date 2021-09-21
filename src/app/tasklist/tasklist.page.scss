@@ -41,8 +41,15 @@ border-right: 10px solid #2dd36f;
   background-color:red;
 }
 
+h3{
+ opacity: 0,6;
+ color: silver;
+ filter: brightness(0.5);
+
+}
 
 .empty-image{
   max-width: 80%;
-  opacity: .6;
+  opacity: 0.6;
+  filter: opacity(0.5);
 }

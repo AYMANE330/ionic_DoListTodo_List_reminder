@@ -1,8 +1,8 @@
-<ion-header [translucent]="true">
-  <ion-toolbar no-shadow lines="none">
-    <ion-item>
+<ion-header color='primary' [translucent]="true">
+  <ion-toolbar color='primary' no-shadow lines="none">
+    <ion-item color='primary'>
       <ion-label class="label">
-        {{ 'home.tabName' | translate }} 
+        {{ 'home.tabName' | translate }}
         <p id="date">{{today | date:'fullDate'}}</p>
       </ion-label>
     </ion-item>
@@ -18,10 +18,12 @@
   </div>
   <ion-card line='none' mode='ios' *ngFor="let item of todoService.tasks; let i = index" lines="none">
 
-    <ion-item-sliding mode='ios' #slidingItem> 
-      <ion-item [ngClass]="{'high': item.value.itemPriority === 'high', 'low' : item.value.itemPriority === 'low', 'middle' : item.value.itemPriority === 'middle' }">
-        <ion-checkbox mode="ios" [(ngModel)]="item.value.state" (ionChange)="updateChecklist(item)"></ion-checkbox>
-        
+    <ion-item-sliding mode='ios' #slidingItem>
+      <ion-item
+        [ngClass]="{'high': item.value.itemPriority === 'high', 'low' : item.value.itemPriority === 'low', 'middle' : item.value.itemPriority === 'middle' }">
+        <ion-checkbox mode="ios" color='success' [(ngModel)]="item.value.state" (ionChange)="updateChecklist(item)">
+        </ion-checkbox>
+
         <!-- <ion-icon slot="end" *ngIf="item.value.itemPriority === 'high'" color="danger" size="small" name="ellipse"></ion-icon>
         <ion-icon slot="end" *ngIf="item.value.itemPriority === 'low'" color="success" size="small" name="ellipse"></ion-icon>
         <ion-icon slot="end" *ngIf="item.value.itemPriority === 'middle'" color="warning" size="small" name="ellipse"></ion-icon> -->
