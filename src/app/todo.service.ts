@@ -78,7 +78,7 @@ export class TodoService {
       notifications: [
         {
           title: task.value.itemName,
-          body: '',
+          body: 'U have a task todo !!!',
           id: task.key,
           schedule: { at: new Date(new Date(task.value.itemDueDate).setSeconds(0)) }
         },
