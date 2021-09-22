@@ -1,13 +1,17 @@
 {
-  "appId": "com.fooxcoder.com",
-  "appName": "ToDolist",
+  "appId": "com.fooxcoder.dolist",
+  "appName": "Dolist",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
+      "androidScaleType": "CENTER_CROP",
       "launchShowDuration": 2000
-    }
+      },
+    "LocalNotifications": {
+        "sound": "task.wav"
+      }
   },
   "cordova": {}
 }

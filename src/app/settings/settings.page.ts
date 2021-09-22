@@ -35,7 +35,7 @@ async delete() {
   const alert = await this.alertController.create({
     cssClass: 'my-custom-class',
     header: 'Confirmation Reset  !!!',
-    message: 'Are You Sure You Want To Delete All <strong>Tasks</strong>',
+    message: 'Are you sure you want to delete  <strong>All Tasks</strong>',
     buttons: [
       {
         text: 'Cancel',
@@ -65,7 +65,7 @@ async delete() {
     message: ` <ion-card mode = 'ios'>
     <ion-card-header>
       <ion-card-subtitle>fooxcoder</ion-card-subtitle>
-      <ion-card-title>TaskList</ion-card-title>
+      <ion-card-title>DoList</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       is simple and awesome app to organize your tasks with a simple interface. <br>To-do-list can help you to make list of your tasks and also you can set Reminder with specific tasks.<br> It reminds you at your specified Time. <br>We believe that we only focus on our daily tasks,<br> which is most important.<br><br><br>

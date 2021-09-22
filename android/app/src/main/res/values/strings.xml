@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name" translatable="false">Dolist</string>
-    <string name="title_activity_main" translatable="false">Dolist</string>
-    <string name="package_name" translatable="false">com.fooxcoder.dolist</string>
-    <string name="custom_url_scheme" translatable="false">com.fooxcoder.dolist</string>
+    <string name="app_name">Dolist</string>
+    <string name="title_activity_main">Dolist</string>
+    <string name="package_name">com.fooxcoder.dolist</string>
+    <string name="custom_url_scheme">com.fooxcoder.dolist</string>
 </resources>

@@ -45,11 +45,12 @@ h3{
  opacity: 0,6;
  color: silver;
  filter: brightness(0.5);
-
+  text-align: center;
 }
 
 .empty-image{
   max-width: 80%;
   opacity: 0.6;
   filter: opacity(0.5);
+  padding-top: 20vh;
 }

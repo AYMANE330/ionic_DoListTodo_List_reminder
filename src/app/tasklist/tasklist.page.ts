@@ -20,7 +20,7 @@ export class TasklistPage {
 
     this.emptyLists = [
       {
-        text : ' Add Your First Todo',
+        text : ' Add your first task',
         image: '../../assets/images/brain.png'
       },
       {
@@ -28,12 +28,12 @@ export class TasklistPage {
         image: '../../assets/images/light.png'
       },
       {
-        text : `Let's Do Your task`,
+        text : `Let's do your task`,
         image: '../../assets/images/gains.png'
       },
       {
-        text : `Are You Ready?
-		Let's Do Your Tasks`,
+        text : `are you ready?
+		Let's do your tasks`,
         image: '../../assets/images/poche.png'
       }
     ]
